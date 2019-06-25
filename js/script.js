@@ -58,24 +58,27 @@ function draw(){
 
     // North piller movings
         pipeN.x -= 4;
-        if(pipeN.x < -40){pipeN.x = 1000
+        if(pipeN.x+52 < 0){pipeN.x = 800
         pipeN.y = Math.random()*200-230;
         pipeS.y = pipeN.y+400;
         };/* abs control */
     
     // South piller movings        
-        pipeS.x -= 4;
-        if(pipeS.x < -40){pipeS.x = 1000;};/* abs control */
+        pipeS.x = pipeN.x; // pes besoin, se déplace par rapport à la barre du haut
+        /* if(pipeS.x+52 < 0){pipeS.x = 800;}; *//* abs control pas besoin */
 
 
-    ctx.clearRect(0, 0, 1000, 500);
+    ctx.clearRect(0, 0, 800, 500);
     ctx.fillStyle = "beige";
-    ctx.fillRect(0, 0, 1000, 500);
+    ctx.fillRect(0, 0, 800, 500);
     ctx.drawImage(oiseau, bird.x, bird.y);
     ctx.drawImage(pipeNorth, pipeN.x, pipeN.y);
-    ctx.drawImage(pipeSouth, pipeS.x, pipeS.y);
+    ctx.drawImage(pipeSouth, pipeS.x, pipeS.y); /* pipeN.x pour garder la symétrie par rapport à la barre du haut */
 
     if(contactPiller(pipeS,pipeSouth) || contactPiller(pipeN, pipeNorth)){
+        if(confirm('Game over! Try again?')){
+            location.reload();
+        }
         return;
     }
 
