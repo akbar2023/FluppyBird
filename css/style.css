@@ -15,7 +15,7 @@ body{
     border: 2px dotted #fff;
     position: absolute;
     top: 50px;
-    width: 20%;
+    /* width: 20%; */
     margin: 0 auto;
     text-align: center;
 }
