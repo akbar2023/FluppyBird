@@ -46,7 +46,7 @@ pipesS.push(new Piller(1000, 200));
 // Contact function
 
 function contactPiller(pipe, pipeImage) {
-    return bird.x < pipe.x + (pipeImage.width / 2) && bird.x + oiseau.width > pipe.x && bird.y < pipe.y + pipeImage.height && bird.y + oiseau.height > pipe.y;
+    return bird.x < pipe.x + (pipeImage.width / 2) && bird.x + oiseau.width > pipe.x && bird.y < pipe.y + pipeImage.height && bird.y + oiseau.height > pipe.y || bird.y > 430; // 430 : quand il touche le sol -> il se blesse
 }
 
 
